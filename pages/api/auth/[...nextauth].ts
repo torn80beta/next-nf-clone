@@ -64,7 +64,7 @@ export default NextAuth({
   },
 
   debug: process.env.NODE_ENV === "development",
-  adapter: PrismaAdapter(prismadb),
+  adapter: PrismaAdapter(prismadb), //connects oauth providers with DB
   session: {
     strategy: "jwt",
   },
