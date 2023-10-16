@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const fetcher = (url: string) => {
-  axios.get(url).then((res) => res.data);
+  const data = axios.get(url).then((res) => res.data);
+  // console.log(data);
+  return data;
 };
 
 export default fetcher;
