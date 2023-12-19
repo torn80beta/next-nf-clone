@@ -31,6 +31,12 @@ export default function Home() {
       <button className="h-10 w-full bg-white" onClick={() => signOut()}>
         Logout!
       </button> */}
+      {/* <div className="bg-gray-500">
+        <div className="h-96"></div>
+        <div className="h-96"></div>
+        <div className="h-96"></div>
+        <div className="h-96"></div>
+      </div> */}
     </>
   );
 }
