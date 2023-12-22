@@ -5,9 +5,13 @@ import useFavorites from "@/hooks/useFavorites";
 import useMovieList from "@/hooks/useMovieList";
 import { NextPageContext } from "next";
 import { getSession, signOut } from "next-auth/react";
+// import { authOptions } from "@/pages/api/auth/[...nextauth]";
+// import { getServerSession } from "next-auth";
 
-async function getServerSideProps(context: NextPageContext) {
+export async function getServerSideProps(context: NextPageContext) {
+  // async function getServerSideProps(context: any) {
   const session = await getSession(context);
+  // const session = await getServerSession(context.req, context.res, authOptions);
 
   if (!session) {
     return {
@@ -23,7 +27,7 @@ async function getServerSideProps(context: NextPageContext) {
   };
 }
 
-export default function Home() {
+const Home = () => {
   const { data: movies = [] } = useMovieList();
   const { data: favorites = [] } = useFavorites();
 
@@ -37,4 +41,6 @@ export default function Home() {
       </div>
     </>
   );
-}
+};
+
+export default Home;
