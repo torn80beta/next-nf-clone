@@ -12,7 +12,7 @@ export default async function handler(
     if (req.method === "POST") {
       // console.log("PRE AUTH CHECK");
       // console.log(req.method);
-      const { currentUser } = await serverAuth(req);
+      const { currentUser } = await serverAuth(req, res);
       const { movieId } = req.body;
       // console.log(currentUser);
 
@@ -41,7 +41,7 @@ export default async function handler(
     }
 
     if (req.method === "DELETE") {
-      const { currentUser } = await serverAuth(req);
+      const { currentUser } = await serverAuth(req, res);
       const { movieId } = req.body;
 
       const existingMovie = await prisma.movie.findUnique({
