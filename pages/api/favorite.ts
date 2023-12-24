@@ -7,14 +7,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  // console.log(req);
   try {
     if (req.method === "POST") {
-      // console.log("PRE AUTH CHECK");
-      // console.log(req.method);
       const { currentUser } = await serverAuth(req, res);
       const { movieId } = req.body;
-      // console.log(currentUser);
 
       const existingMovie = await prisma.movie.findUnique({
         where: {

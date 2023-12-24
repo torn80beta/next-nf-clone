@@ -6,15 +6,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  // console.log(req);
-
   if (req.method !== "GET") {
     return res.status(405).end();
   }
 
   try {
     const { currentUser } = await serverAuth(req, res);
-    // console.log(currentUser);
     const favoriteMovies = await prisma.movie.findMany({
       where: {
         id: {
