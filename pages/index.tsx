@@ -1,4 +1,5 @@
 import Billboard from "@/components/Billboard";
+import InfoModal from "@/components/InfoModal";
 import MovieList from "@/components/MovieList";
 import Navbar from "@/components/Navbar";
 import useFavorites from "@/hooks/useFavorites";
@@ -29,6 +30,7 @@ const Home = () => {
 
   return (
     <>
+      <InfoModal visible onClose={() => {}} />
       <Navbar />
       <Billboard />
       <div className="pb-40">
