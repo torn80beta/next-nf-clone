@@ -6,10 +6,17 @@ import useFavorites from "@/hooks/useFavorites";
 import useInfoModal from "@/hooks/useInfoModal";
 import useMovieList from "@/hooks/useMovieList";
 import { NextPageContext } from "next";
-import { getSession } from "next-auth/react";
 
-export async function getServerSideProps(context: NextPageContext) {
-  const session = await getSession(context);
+// import { getSession } from "next-auth/react";
+
+import { getServerSession } from "next-auth";
+import { GetServerSidePropsContext } from "next";
+import { authOptions } from "./api/auth/[...nextauth]";
+
+// export async function getServerSideProps(context: NextPageContext) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  // const session = await getSession(context);
+  const session = await getServerSession(context.req, context.res, authOptions);
 
   if (!session) {
     return {
