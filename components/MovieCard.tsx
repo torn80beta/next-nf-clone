@@ -39,7 +39,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                 router.push(`/watch/${data?.id}`);
               }}
             >
-              <BsFillPlayFill size={30} />
+              <BsFillPlayFill size={30} className="ml-1" />
             </div>
             <FavoriteButton movieId={data?.id} />
             <div
